@@ -16,7 +16,10 @@ function createtime() {
     var seconds = Math.round((now - endDate) / 1e3 - 86400 * days - 3600 * hours - 60 * minutes);
 
     // 根据条件生成 HTML 内容
-    var htmlContent = `本站居然运行了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒";`
+    var htmlContent = `
+    <p>本站居然运行了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒</p>
+    <p>彼方尚有荣光在，世界不止眼前的苟且，还有诗和远方 · 世界那么大，我想去看看</p>
+    `
 
     // 更新页面内容
     if (document.getElementById("workboard")) {
