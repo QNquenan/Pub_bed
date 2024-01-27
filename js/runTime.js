@@ -16,10 +16,7 @@ function createtime() {
     var seconds = Math.round((now - endDate) / 1e3 - 86400 * days - 3600 * hours - 60 * minutes);
 
     // 根据条件生成 HTML 内容
-    var htmlContent = "";
-    htmlContent = (hours < 18 && hours >= 9) ?
-        `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${travelDistance} 千米，约为 ${astronomicalUnits} 个天文单位 🚀</div>` :
-        `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${travelDistance} 千米，约为 ${astronomicalUnits} 个天文单位 🚀</div>`;
+    var htmlContent = `本站居然运行了 ${days} 天 ${hours} 小时 ${minutes} 分 ${seconds} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i>";`
 
     // 更新页面内容
     if (document.getElementById("workboard")) {
