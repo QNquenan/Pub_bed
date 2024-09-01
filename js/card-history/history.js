@@ -1,4 +1,4 @@
-if(document.getElementById('history-container')){
+if (location.pathname == '/' || location.pathname.startsWith('/post')) {
     function append(parent, text) {
         if (typeof text === 'string') {
             var temp = document.createElement('div');
@@ -15,7 +15,7 @@ if(document.getElementById('history-container')){
         }
     }
 
-    function history_get_data(){
+    function history_get_data() {
         var myDate = new Date();
         var myMonth = myDate.getMonth() + 1;
         if (myMonth < 10) {
@@ -30,21 +30,20 @@ if(document.getElementById('history-container')){
             getDate = String(getDate);
         }
         var getMonthDate = "S" + getMonth + getDate;
-        return ["https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history@latest/baiduhistory/json/" + getMonth + ".json",getMonthDate]
+        return ["https://gcore.jsdelivr.net/gh/Zfour/Butterfly-card-history@latest/baiduhistory/json/" + getMonth + ".json", getMonthDate]
     }
     var history_data = history_get_data()
-    fetch(history_data[0]).then(data=>data.json()).then(data=>{
-        console.log(data[history_data[1]])
-        html_item =''
-        for (var item of data[history_data[1]]){
+    fetch(history_data[0]).then(data => data.json()).then(data => {
+        html_item = ''
+        for (var item of data[history_data[1]]) {
             html_item += '<div class="swiper-slide history_slide"><span class="history_slide_time">A.D.' +
-                item.year +'</span>' + '<span class="history_slide_link">'+ item.title +'</span></div>'
+                item.year + '</span>' + '<span class="history_slide_link">' + item.title + '</span></div>'
 
         }
         var history_container_wrapper = document.getElementById('history_container_wrapper')
         append(history_container_wrapper, html_item);
         var swiper_history = new Swiper('.history_swiper-container', {
-            passiveListeners:true,
+            passiveListeners: true,
             spaceBetween: 30,
             effect: 'coverflow',
             coverflowEffect: {
@@ -55,10 +54,10 @@ if(document.getElementById('history-container')){
             direction: 'vertical',
             autoplay: {
                 disableOnInteraction: true,
-                delay:5000
+                delay: 5000
             },
 
-            mousewheel:false,
+            mousewheel: false,
             // autoHeight: true,
 
         });
@@ -70,7 +69,8 @@ if(document.getElementById('history-container')){
         history_comtainer.onmouseleave = function () {
             swiper_history.autoplay.start();
         }
-    })}
+    })
+}
 
 
 
