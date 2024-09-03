@@ -1,4 +1,4 @@
-if (location.pathname == '/' || location.pathname.startsWith('/post')) {
+if (location.pathname == '/' || location.pathname.startsWith('/post') || location.pathname.startsWith('/page')) {
     function append(parent, text) {
         if (typeof text === 'string') {
             var temp = document.createElement('div');
